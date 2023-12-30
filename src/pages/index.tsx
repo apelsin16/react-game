@@ -15,7 +15,7 @@ const MainPage:FC<IMainPageProps> = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {data: users} = useGetUserQuery({userId: 1})
     return (
-        <div className='grid gap-x-8 gap-y-4 grid-cols-3'>
+        <div className='flex gap-4'>
             <p>{nickname}</p>
             <Link to={ROUTES.games.roulette}>Roulette</Link>
             <Link to={ROUTES.games.slots}>Slots</Link>

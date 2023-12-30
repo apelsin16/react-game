@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { BASE_URL } from '../../../app/config/network'
-import { IUser } from '../../model/User';
+import { IUser } from '../model/User';
 
 interface IRequestGetUser {
     userId: number
