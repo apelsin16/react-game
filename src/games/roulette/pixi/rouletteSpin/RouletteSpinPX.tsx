@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 import { selectRouletteSpinRotationInPropgress, selectRouletteSpinSpeed, setRouletteDegreesRotation, setRouletteSpinSpeed } from '../../slices/rouletteSpinSlice';
 import { radianToDegrees } from '../../../../shared/lib/degrees/radianToDegrees';
 import { RouletteLifecycle, setRouletteLifecycle } from '../../slices/rouletteSlice';
+import { sound } from '@pixi/sound';
+import { SOUNDS_ROULETTE } from '../../scenes/GameScene/config';
 
 interface IRouletteSpinPXProps {}
 
@@ -45,6 +47,7 @@ const RouletteSpinPX:FC<IRouletteSpinPXProps> = ({}) => {
                     radianToDegrees(rotationMedium % (Math.PI*2))
                 ))
                 dispatch(setRouletteLifecycle(RouletteLifecycle.FINISHED));
+                sound.stop(SOUNDS_ROULETTE.SPIN);
             } else {
                 dispatch(setRouletteSpinSpeed(null));
             }

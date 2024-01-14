@@ -6,6 +6,8 @@ import bet100 from '../../../../../assets/roulette/bet-100.png';
 import bet200 from '../../../../../assets/roulette/bet-200.png';
 import bet400 from '../../../../../assets/roulette/bet-400.png';
 import bet800 from '../../../../../assets/roulette/bet-800.png';
+import { sound } from '@pixi/sound';
+import { SOUNDS_ROULETTE } from '../../../scenes/GameScene/config';
 
 interface IBetsPanelProps {}
 
@@ -37,6 +39,7 @@ const BetsPanel:FC<IBetsPanelProps> = ({}) => {
     const dispatch = useAppDispatch();
 
     const pickBet = ( value: number ) => {
+        sound.play(SOUNDS_ROULETTE.BET);
         dispatch(setCurrentBet(value));
     }
 
