@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import SlotsGameScene from './scenes/GameScene'
 
-interface ICoreGameSlotsProps {};
+interface ICoreGameSlotsProps {}
 
-const CoreGameSlots:FC<ICoreGameSlotsProps> = ({}) => {
+const CoreGameSlots:FC<ICoreGameSlotsProps> = () => {
   return (
     <div>
         <SlotsGameScene />
