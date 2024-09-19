@@ -9,6 +9,8 @@ import RoulettePage from "../../pages/games/roulette";
 import SlotsPage from "../../pages/games/slots";
 import HummerPage from "../../pages/games/hummer";
 
+const basename = import.meta.env.VITE_BASENAME || "";
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -54,6 +56,6 @@ export const router = createBrowserRouter([
     },
 ],
 {
-        basename: "/react-game"  // Додаємо basename з назвою репозиторію
+        basename: basename,  // Додаємо basename з назвою репозиторію
     }
 );
