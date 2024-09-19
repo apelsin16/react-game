@@ -1,58 +1,57 @@
-import React, { FC, useEffect } from 'react';
-import * as PIXI from 'pixi.js';
 import { AnimatedSprite } from '@pixi/react';
+import { FC, useEffect } from 'react';
+import * as PIXI from 'pixi.js';
 import { HummerPitState, IHummerPit } from '../../../slices/models/Pit';
 import { useAppDispatch } from '../../../../../app/store/hooks';
-import { setHummerPits, setHummerScore } from '../../../slices/HummerCoreSlice';
+import { setHummerPits } from '../../../slices/HummerCoreSlice';
 
-type HummerAnimatePitPXProps = {
-    frames?: PIXI.Texture<PIXI.Resource>[],
-    position: IHummerPit['position'],
-    idx: number
+interface IHummerAnimatePitPXProps {
+  frames?: PIXI.Texture[];
+  position: IHummerPit['position'];
+  idx: number;
 }
 
-const WIN_SCORE = 100;
-const LOSE_SCORE = 200;
+const HummerAnimatePitPX: FC<IHummerAnimatePitPXProps> = ({
+  frames,
+  position,
+  idx,
+}) => {
+  const dispatch = useAppDispatch();
 
-const HummerAnimatePitPX: FC<HummerAnimatePitPXProps> = ({frames, position, idx}) => {
-    const dispatch = useAppDispatch();
+  useEffect(() => {
+    const hideTimeout = setTimeout(() => {
+      dispatch(setHummerPits({
+        currentIndex: idx,
+        state: HummerPitState.EMPTY,
+      }))
+    }, 5000);
 
-    useEffect(() => {        
-        const hideTimeout = setTimeout(() => {
-            dispatch(setHummerScore(-LOSE_SCORE));
-            dispatch(setHummerPits({
-                currentIndex: idx, 
-                state: HummerPitState.EMPTY
-            }))
-        }, 5000);
-        return () => clearTimeout(hideTimeout);
-    }, []);
+    return () => clearTimeout(hideTimeout);
+  }, [])
+  const onClick = () => {
+    dispatch(setHummerPits({
+      currentIndex: idx,
+      state: HummerPitState.EMPTY,
+    }))
+  }
+  if (!frames?.length) {
+    return <></>
+  }
+  return (
+    <AnimatedSprite
+      animationSpeed={0.05}
+      isPlaying={true}
+      textures={frames}
+      anchor={{
+        x: 0.5,
+        y: 1
+      }}
+      position={position}
+      loop={false}
+      interactive={true}
+      onmousedown={onClick}
+    />
+  )
+};
 
-    const onClick = () => {
-        dispatch(setHummerScore(WIN_SCORE));
-        dispatch(setHummerPits({
-            currentIndex: idx, 
-            state: HummerPitState.EMPTY
-        }));
-    }
-    if(!frames?.length) {
-        return <></>
-    }
-    return (
-        <AnimatedSprite 
-            textures={frames} 
-            isPlaying={true}   
-            animationSpeed={0.05} 
-            anchor={{
-                x: 0.5,
-                y: 1
-            }}    
-            position={position}
-            loop={false}
-            interactive={true}
-            onmousedown={onClick}
-        />
-    )
-}
-
-export default HummerAnimatePitPX
+export default HummerAnimatePitPX;

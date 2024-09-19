@@ -1,30 +1,28 @@
-import React, { FC } from 'react'
-import { Stage } from '../../../../app/config/contextBridg';
+import React, { FC } from 'react';
+import { Stage } from '../../../../app/config/contextBridge';
 import HummerBgPX from '../../pixi/game/bg/HummerBgPX';
-import HummerPitsPX from '../../pixi/game/pits/HummerPitsPX';
+import PitsPX from '../../pixi/game/pits/PitsPX';
 import HummerGameSceneUI from './HummerGameSceneUI';
 
-interface IHummerGameSceneProps {}
+interface IHummerGameSceneProps {
 
-const HummerGameScene:FC<IHummerGameSceneProps> = ({}) => {
+};
 
-    const [width, height] = [550, 700];
-    return (
-        <div>
-            <HummerGameSceneUI> 
-                <Stage
-                    width={width}
-                    height={height}
-                    options={{
-                        background: 'green'
-                    }}
-                >
-                    <HummerBgPX />                
-                    <HummerPitsPX />
-                </Stage>
-            </HummerGameSceneUI>
-        </div>
-    )
-}
+const [width, height] = [550, 700];
+
+const HummerGameScene: FC<IHummerGameSceneProps> = ({ }) => {
+  return (
+    <div>
+      <HummerGameSceneUI>
+        <Stage width={width} height={height} options={{
+          backgroundColor: 'green'
+        }}>
+          <HummerBgPX />
+          <PitsPX />
+        </Stage>
+      </HummerGameSceneUI>
+    </div>
+  )
+};
 
 export default HummerGameScene;

@@ -1,16 +1,20 @@
-import React, { FC } from 'react'
-import StartButton from '../../ui/menu/StartButton';
+import { FC } from 'react';
+import HummerMenuStartButton from '../../ui/menu/startButton/';
 
-interface IHummerMenuSceneProps {}
+interface IHummerMenuSceneProps {
+
+};
 
 const HummerMenuScene:FC<IHummerMenuSceneProps> = ({}) => {
   return (
     <div>
+      <div>
         <div>Balance</div>
-        <div>Last score</div>
-        <StartButton />
+        <div>Last score result&level</div>
+      </div>
+      <HummerMenuStartButton />
     </div>
   )
-}
+};
 
 export default HummerMenuScene;

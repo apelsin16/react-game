@@ -1,16 +1,17 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../app/router/utils';
 import CoreGameRoulette from '../../../games/roulette';
+import styles from '../../page.module.css';
 
 interface IRoulettePageProps {
 
-};
+}
 
-const RoulettePage:FC<IRoulettePageProps> = ({}) => {
+const RoulettePage:FC<IRoulettePageProps> = () => {
     return (
-        <div>
-            <Link to={ROUTES.main}>Return to Main Page</Link>
+        <div className={styles.roulette}>
+            <Link to={ROUTES.main} className='text-white'>Return to Main Page</Link>
             <CoreGameRoulette />
         </div>
     )

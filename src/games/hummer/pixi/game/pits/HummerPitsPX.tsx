@@ -1,57 +1,60 @@
-import React, { FC, useEffect, useState } from 'react'
-import { Container } from '@pixi/react'
-import HummerPitPx from './HummerPitPx';
+import { Container } from '@pixi/react';
+import { FC, useEffect, useState } from 'react';
+import { HummerPitState } from '../../../slices/models/Pit';
+import HummerPitPX from './HummerPitPx';
 import * as PIXI from 'pixi.js';
 
-import spritesheet from '../../../../../assets/hummer/sprite-mole.json';
 import { useAppDispatch, useAppSelector } from '../../../../../app/store/hooks';
 import { selectHummerPits, setHummerPits } from '../../../slices/HummerCoreSlice';
-import { HummerPitState } from '../../../slices/models/Pit';
 
-type HummerPitsPXProps = {}
+interface IPitsPXProps {
 
-const HummerPitsPX:FC<HummerPitsPXProps> = ({}) => {
-    const dispatch = useAppDispatch();
-    const [frames, setFrames] = useState<PIXI.Texture<PIXI.Resource>[]>();
+}
+
+const PitsPX:FC<IPitsPXProps> = () => {
+    const [frames, setFrames] = useState<PIXI.Texture[]>();
     const pits = useAppSelector(selectHummerPits);
 
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        const algorithmInterval = setInterval(() => {
+        const algoritmInternal = setInterval(() => {
             const randomIndex = Math.floor(Math.random() * 9);
             dispatch(setHummerPits({
                 currentIndex: randomIndex,
                 state: HummerPitState.PROCESSING
             }))
         }, 2000);
-        return () => clearInterval(algorithmInterval);
-    }, [dispatch]);
+
+        return () => clearInterval(algoritmInternal);
+    }, []);
 
     useEffect(() => {
-        PIXI.Assets.load(JSON.stringify(spritesheet)).then(() => {
-            const names = ['mole-001.svg', 'mole-002.svg', 'mole-003.svg'];
-            const genFrames = names.map((name) => {
-                return PIXI.Texture.from(name);
-            })
-            setFrames(genFrames);
-        })
-    }, [])
+        const names = ['mole-001.png', 'mole-002.png', 'mole-003.png'].map((name) =>
+            PIXI.Texture.from(name)
+        );
+        setFrames(names);
+    }, []);
+
+    if (frames?.length === 0) {
+        return null; // Або можна відобразити лоадер чи інший контент
+    }
+
     return (
         <Container
             x={25}
             y={50}
         >
             {pits.map((pit, idx) => (
-                    <HummerPitPx 
-                        key={`pit${idx}`}
-                        {...pit}
-                        frames={frames}
-                        idx={idx}
-                    />
-                ))
-            }
+                <HummerPitPX
+                    key={`pit${idx}`}
+                    frames={frames}
+                    idx={idx}
+                    {...pit}
+                />
+            ))}
         </Container>
     )
-}
+};
 
-export default HummerPitsPX;
+export default PitsPX;

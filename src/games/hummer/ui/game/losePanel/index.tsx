@@ -1,10 +1,10 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../../app/store/hooks'
 import { HummerScenes, selectHummerGameOver, setHummerScene } from '../../../slices/HummerCoreSlice';
 
 interface ILosePanelProps {}
 
-const LosePanel:FC<ILosePanelProps> = ({}) => {
+const LosePanel:FC<ILosePanelProps> = () => {
     const dispatch = useAppDispatch();
     const gameOver = useAppSelector(selectHummerGameOver);
 

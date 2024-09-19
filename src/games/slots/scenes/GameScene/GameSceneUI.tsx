@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import SlotsBetsPanel from '../../ui/BetsPanel';
 import SlotsInfoPanel from '../../ui/InfoPanel';
 import SlotsEventPanel from '../../ui/EventPanel';
@@ -10,13 +10,13 @@ interface ISlotsGameSceneUIProps {
 const SlotsGameSceneUI:FC<ISlotsGameSceneUIProps> = ({children}) => {
   return (
     <div className='relative'>
-        <div className='absolute left-[5%] top-[50%] translate-y-[-50%]'>
+        <div className='absolute left-[50%] bottom-[3%] translate-x-[-50%]'>
             <SlotsBetsPanel />
         </div>        
-        <div className='absolute right-[15%] top-[30%]'>
+        <div className='absolute left-[3%] top-[30%]'>
             <SlotsInfoPanel />
         </div>        
-        <div className='absolute right-[15%] top-[50%]'>
+        <div className='absolute right-[9%] bottom-[15%]'>
             <SlotsEventPanel />
         </div>        
         {children}

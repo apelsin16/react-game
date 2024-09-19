@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../../app/store/hooks';
-import { selectActiveNumber, setCurrentBet } from '../../../slices/rouletteSlice';
+import { FC } from 'react'
+import { useAppDispatch } from '../../../../../app/store/hooks';
+import { setCurrentBet } from '../../../slices/rouletteSlice';
 import bet50 from '../../../../../assets/roulette/bet-50.png';
 import bet100 from '../../../../../assets/roulette/bet-100.png';
 import bet200 from '../../../../../assets/roulette/bet-200.png';
@@ -8,6 +8,7 @@ import bet400 from '../../../../../assets/roulette/bet-400.png';
 import bet800 from '../../../../../assets/roulette/bet-800.png';
 import { sound } from '@pixi/sound';
 import { SOUNDS_ROULETTE } from '../../../scenes/GameScene/config';
+import styles from './betsPanel.module.css';
 
 interface IBetsPanelProps {}
 
@@ -34,7 +35,7 @@ const BETS = [
     },
 ];
 
-const BetsPanel:FC<IBetsPanelProps> = ({}) => {
+const BetsPanel:FC<IBetsPanelProps> = () => {
 
     const dispatch = useAppDispatch();
 
@@ -44,7 +45,7 @@ const BetsPanel:FC<IBetsPanelProps> = ({}) => {
     }
 
   return (
-    <div className='text-white font-medium'>
+    <div className={styles.wrapper}>
         <div className='flex gap-3 items-center'>
             {BETS.map(({value, image}) => (
                 <div

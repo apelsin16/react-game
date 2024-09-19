@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import bet50 from '../../../../assets/roulette/bet-50.png';
 import bet100 from '../../../../assets/roulette/bet-100.png';
 import bet200 from '../../../../assets/roulette/bet-200.png';
@@ -41,7 +41,7 @@ const SlotsBetsPanel:FC<ISlotsBetsPanelProps> = () => {
     }
     return (
         <div className='text-white font-medium'>
-            <div className='flex flex-col gap-3 items-center'>
+            <div className='flex gap-3 items-center'>
                 {BETS.map(({value, image}) => (
                     <div
                         className='cursor-pointer hover:scale-[1.05] transition-all'

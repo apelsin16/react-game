@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
 import { selectRouletteSpinCurrentNumber, setRouletteSpinStartSpeed } from '../../slices/rouletteSpinSlice';
 import { RouletteLifecycle, selectRouletteLifecycle, selectRouletteWinOrLose, setRouletteLifecycle } from '../../slices/rouletteSlice';
 import { sound } from '@pixi/sound';
 import { SOUNDS_ROULETTE } from '../../scenes/GameScene/config';
+import RouletteStartButton from "../../shared/button/RouletteStartButton.tsx";
 
 interface IEventPanelProps {}
 
@@ -21,11 +22,7 @@ const EventPanel:FC<IEventPanelProps> = ({}) => {
     return (
         <div>
             {lifecycle === RouletteLifecycle.READY_TO_START && (
-            <button
-                onClick={onStart}
-            >
-                Start
-            </button>
+                <RouletteStartButton onClick={onStart}/>
             )}
             {lifecycle === RouletteLifecycle.PLAY && (
                 <div>Playing...</div>

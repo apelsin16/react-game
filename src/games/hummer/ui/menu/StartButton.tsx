@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { useAppDispatch } from '../../../../app/store/hooks'
 import { HummerScenes, setHummerScene } from '../../slices/HummerCoreSlice';
 
-type HummerMenuStartButtomProps = {}
+type HummerMenuStartButtonProps = {}
 
-const StartButton: FC<HummerMenuStartButtomProps> = ({}) => {
+const StartButton: FC<HummerMenuStartButtonProps> = ({}) => {
     const dispatch = useAppDispatch();
     const onStart = () => {
         dispatch(setHummerScene(HummerScenes.GAME))

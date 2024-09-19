@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { Container, Sprite, useTick } from '@pixi/react';
 import externalCircle from '../../../../assets/roulette/external-circle.png';
 import internalCircle from '../../../../assets/roulette/internal-circle.png';
@@ -11,17 +11,18 @@ import { radianToDegrees } from '../../../../shared/lib/degrees/radianToDegrees'
 import { RouletteLifecycle, setRouletteLifecycle } from '../../slices/rouletteSlice';
 import { sound } from '@pixi/sound';
 import { SOUNDS_ROULETTE } from '../../scenes/GameScene/config';
+import bgRoulette from '../../../../assets/roulette/bg-roulette.png';
 
 interface IRouletteSpinPXProps {}
 
 const POSITION_SPIN = {
-    x: 200,
-    y: 300
+    x: 264,
+    y: 286
 }
 
 const POSITION_ARROW = {
-    x: 200,
-    y: 170,
+    x: 264,
+    y: 160,
     rotation: -0.45
 }
 
@@ -56,13 +57,19 @@ const RouletteSpinPX:FC<IRouletteSpinPXProps> = ({}) => {
 
     return (
     <Container>
-        <Sprite 
+        <Sprite
+            image={bgRoulette}
+            x={424}
+            y={500}
+            anchor={1}
+        />
+        <Sprite
             image={externalCircle}
             x={POSITION_SPIN.x}
             y={POSITION_SPIN.y}
             anchor={0.5}
         />
-        <Sprite 
+        <Sprite
             image={mediumCircle}
             x={POSITION_SPIN.x}
             y={POSITION_SPIN.y}

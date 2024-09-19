@@ -1,16 +1,13 @@
-import React, {FC} from "react";
+import {FC} from "react";
 import { Outlet } from "react-router-dom";
 
 interface IMainLayoutProps {
 
 };
 
-const MainLayout:FC<IMainLayoutProps>  = ({}) => {
+const MainLayout:FC<IMainLayoutProps>  = () => {
     return (
-        <div>
-            <div>
-                Header
-            </div>
+        <div className='flex justify-center items-center h-screen bg-green-900'>
             <Outlet />
         </div>
     )

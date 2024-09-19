@@ -1,7 +1,7 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import RouletteSpinPX from '../../pixi/rouletteSpin/RouletteSpinPX';
 import GameSceneUI from './GameSceneUI';
-import { Stage } from '../../../../app/config/contextBridg';
+import { Stage } from '../../../../app/config/contextBridge.tsx';
 import GameSceneActionsProvider from './GameSceneActionsProvider';
 import soundBG from '../../../../assets/sounds/roulette/bg.mp3';
 import soundBet from '../../../../assets/sounds/roulette/bet.mp3';
@@ -10,16 +10,17 @@ import soundRouletteSpin from '../../../../assets/sounds/roulette/spin.mp3';
 import { sound } from '@pixi/sound';
 import { SOUNDS_ROULETTE } from './config';
 import * as PIXI from 'pixi.js';
+import BgPX from "../../pixi/bg/bgPX.tsx";
 
 interface IRouletteGameSceneProps {
 
 };
 
-const [width, height] = [1100, 500];
+const [width, height] = [1150, 500];
 
 
 
- const RouletteGameScene:FC<IRouletteGameSceneProps> =  ({}) => {
+ const RouletteGameScene:FC<IRouletteGameSceneProps> =  () => {
 
     useEffect(() => {
         (async () => {
@@ -37,7 +38,6 @@ const [width, height] = [1100, 500];
     sound.add(SOUNDS_ROULETTE.SPIN, soundRouletteSpin);
     return (
         <div className='flex flex-col items-center'>
-            <div>Title game</div>
             <GameSceneActionsProvider>
                 <GameSceneUI >
                     <Stage
@@ -47,6 +47,7 @@ const [width, height] = [1100, 500];
                             background: 'green'
                         }}
                     >
+                        <BgPX />
                         <RouletteSpinPX />
                     </Stage>
                 </GameSceneUI>

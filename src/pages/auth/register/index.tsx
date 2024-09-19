@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface IRegisterPageProps {
 
 };
 
-const RegisterPage:FC<IRegisterPageProps> = ({}) => {
+const RegisterPage:FC<IRegisterPageProps> = () => {
     return (
-        <div>! Regist6er page !</div>
+        <div>! Register page !</div>
     )
 };
 

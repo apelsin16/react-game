@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface ILoginPageProps {
 
 };
 
-const LoginPage:FC<ILoginPageProps> = ({}) => {
+const LoginPage:FC<ILoginPageProps> = () => {
     return (
         <div className='text-3xl font-bold underline text-center'>! Login page !</div>
     )

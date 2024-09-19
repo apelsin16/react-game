@@ -1,25 +1,26 @@
-import React, { FC } from 'react'
-import { useAppSelector } from '../../app/store/hooks';
-import { HummerScenes, selectHummerScene,} from './slices/HummerCoreSlice';
+import { FC } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
+import { HummerScenes, selectHummerScene } from './slices/HummerCoreSlice';
 import HummerMenuScene from './scenes/menu/HummerMenuScene';
 import HummerGameScene from './scenes/game/HummerGameScene';
 
-interface IHummerCoreProps {}
+interface IHummerCoreProps {
+
+};
 
 const HummerCore:FC<IHummerCoreProps> = ({}) => {
+  const scene = useAppSelector(selectHummerScene);
 
-    const scene = useAppSelector(selectHummerScene);
-    
-    switch (scene) {
-        case HummerScenes.MENU:
-            return <HummerMenuScene />;
-    
-        case HummerScenes.GAME:
-            return <HummerGameScene />;
+  switch (scene){
+    case HummerScenes.MENU:
+      return <HummerMenuScene />;
 
-        default:
-            return <div>Something went wrong :(</div>;
-    }
-}
+    case HummerScenes.GAME:
+      return <HummerGameScene />
+
+    default:
+      return <div>Something wrong...</div>
+  }
+};
 
 export default HummerCore;

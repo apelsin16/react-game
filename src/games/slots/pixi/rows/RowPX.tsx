@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import { Container, Sprite, useTick } from '@pixi/react';
 import { TSlotRow } from './utils';
 import { useAppSelector } from '../../../../app/store/hooks';
@@ -70,7 +70,7 @@ const RowPX:FC<IRowPXProps> = ({
                         image={row.image}
                         x={0}
                         y={idx * ITEM_HEIGHT}
-                        // anchor={0.5}
+                        anchor={0.5}
                         scale={0.5}
                     />
                 ))}
@@ -82,7 +82,7 @@ const RowPX:FC<IRowPXProps> = ({
                         image={row.image}
                         x={0}
                         y={idx * ITEM_HEIGHT}
-                        // anchor={0.5}
+                        anchor={0.5}
                         scale={0.5}
                     />
                 ))}
@@ -96,7 +96,7 @@ const RowPX:FC<IRowPXProps> = ({
                         image={row.image}
                         x={0}
                         y={idx * ITEM_HEIGHT}
-                        // anchor={0.5}
+                        anchor={0.5}
                         scale={0.5}
                     />
                 ))}
