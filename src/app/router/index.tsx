@@ -52,4 +52,8 @@ export const router = createBrowserRouter([
             },
         ]
     },
-]);
+],
+{
+        basename: "/react-game"  // Додаємо basename з назвою репозиторію
+    }
+);
