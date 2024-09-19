@@ -37,6 +37,7 @@ const RowsPX:FC<IRowsPXProps> = () => {
     const mask = useRef(null);
 
     useEffect(() => {
+        console.log(loading);
         setLoading(true);
     }, []);
    

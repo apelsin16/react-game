@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 import { SlotLifecycle, SlotsWinOrLose, selectSlotsCurrentBet, selectSlotsLifecycle, selectSlotsWinOrLose } from '../../slices/slotsSlice';
 import { setBalance } from '../../../../entities/wallet/slices/walletSlice';
@@ -15,11 +15,11 @@ const SlotsBalanceProvider:FC<ISlotsBalanceProviderProps> = ({children}) => {
     const win = useAppSelector(selectSlotsWinOrLose);
     const currentBet = useAppSelector(selectSlotsCurrentBet);
 
-    const disatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if(isPlaying) {
-            disatch(setBalance(win === SlotsWinOrLose.WIN ? currentBet * KOEF_WIN : -currentBet))
+            dispatch(setBalance(win === SlotsWinOrLose.WIN ? currentBet * KOEF_WIN : -currentBet))
         }
     },[lifecycle]);
 

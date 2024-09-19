@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { ROULETTE_TABLE_NUMBERS } from './initData'
 import { twMerge } from 'tailwind-merge'
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks'

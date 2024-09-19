@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import ScorePanel from '../../ui/game/scorePanel';
 
 interface IHummerGameSceneUIProps {

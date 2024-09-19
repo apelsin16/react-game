@@ -13,8 +13,8 @@ interface IPitsPXProps {
 
 };
 
-const PitsPX:FC<IPitsPXProps> = ({}) => {
-  const [frames, setFrames] = useState<PIXI.Texture<PIXI.Resource>[]>();
+const PitsPX:FC<IPitsPXProps> = () => {
+  const [frames, setFrames] = useState<PIXI.Texture[]>();
   const pits = useAppSelector(selectHummerPits);
 
   const dispatch = useAppDispatch();

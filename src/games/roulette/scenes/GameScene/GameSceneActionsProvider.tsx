@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 import { RouletteLifecycle, RouletteWinOrLose, clearRoulette, selectActiveNumber, selectCurrentBet, selectRouletteLifecycle, selectRouletteWinBet, setRouletteLifecycle, setRouletteWinOrLose } from '../../slices/rouletteSlice';
 import { clearRouletteSpin, selectRouletteSpinCurrentNumber } from '../../slices/rouletteSpinSlice';
@@ -38,6 +38,8 @@ const GameSceneActionsProvider:FC<IGameSceneActionsProviderProps> = ({children})
                 dispatch(clearRoulette());
                 dispatch(clearRouletteSpin());
             }, 3000)
+
+            return () => clearTimeout(lifeTimeout);
         }
     }, [lifecycle, dispatch]) 
 

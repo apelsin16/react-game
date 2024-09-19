@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks'
 import { SlotLifecycle, selectSlotsLifecycle, setSlotsLifecycle } from '../../slices/slotsSlice'
 

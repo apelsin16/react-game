@@ -28,12 +28,12 @@ const HummerAnimatePitPX: FC<IHummerAnimatePitPXProps> = ({
 
     return () => clearTimeout(hideTimeout);
   }, [])
-  const onClick = () => {
-    dispatch(setHummerPits({
-      currentIndex: idx,
-      state: HummerPitState.EMPTY,
-    }))
-  }
+  // const onClick = () => {
+  //   dispatch(setHummerPits({
+  //     currentIndex: idx,
+  //     state: HummerPitState.EMPTY,
+  //   }))
+  // }
   if (!frames?.length) {
     return <></>
   }
@@ -41,15 +41,15 @@ const HummerAnimatePitPX: FC<IHummerAnimatePitPXProps> = ({
     <AnimatedSprite
       animationSpeed={0.05}
       isPlaying={true}
-      textures={frames}
+      // textures={frames}
       anchor={{
         x: 0.5,
         y: 1
       }}
       position={position}
       loop={false}
-      interactive={true}
-      onmousedown={onClick}
+      // interactive={true}
+      // onmousedown={onClick}
     />
   )
 };

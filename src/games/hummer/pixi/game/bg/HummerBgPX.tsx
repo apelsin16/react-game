@@ -1,5 +1,5 @@
 import { Container, Sprite } from '@pixi/react';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import bg from '../../../../../assets/hummer/bg.jpg';
 
 interface IHummerBgPXProps {

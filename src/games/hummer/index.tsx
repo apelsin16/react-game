@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
+import { useAppSelector } from '../../app/store/hooks';
 import { HummerScenes, selectHummerScene } from './slices/HummerCoreSlice';
 import HummerMenuScene from './scenes/menu/HummerMenuScene';
 import HummerGameScene from './scenes/game/HummerGameScene';
@@ -8,7 +8,7 @@ interface IHummerCoreProps {
 
 };
 
-const HummerCore:FC<IHummerCoreProps> = ({}) => {
+const HummerCore:FC<IHummerCoreProps> = () => {
   const scene = useAppSelector(selectHummerScene);
 
   switch (scene){
